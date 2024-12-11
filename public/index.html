@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Css -->
+    <link href="./css/output.css" rel="stylesheet" />
+    <link href="./css/colors.css" rel="stylesheet" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="bg-white shadow-lg">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <span class="text-2xl font-bold text-blue-600">Logo</span>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#" class="text-gray-700 hover:text-blue-600">Beranda</a>
+            <a href="#" class="text-gray-700 hover:text-blue-600">Tentang</a>
+            <a href="#" class="text-gray-700 hover:text-blue-600">Layanan</a>
+            <a href="#" class="text-gray-700 hover:text-blue-600">Kontak</a>
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden">
+            <button id="menu-btn" class="focus:outline-none">
+              <svg
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4">
+          <a href="#" class="block py-2 text-gray-700 hover:text-blue-600"
+            >Beranda</a
+          >
+          <a href="#" class="block py-2 text-gray-700 hover:text-blue-600"
+            >Tentang</a
+          >
+          <a href="#" class="block py-2 text-gray-700 hover:text-blue-600"
+            >Layanan</a
+          >
+          <a href="#" class="block py-2 text-gray-700 hover:text-blue-600"
+            >Kontak</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="max-w-6xl mx-auto px-4 py-12">
+      <!-- Menggunakan max-w-6xl sama seperti navbar -->
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <!-- Left Side - Text Content -->
+        <div class="md:w-1/2 mb-8 md:mb-0">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">
+            Selamat Datang di Website Kami
+          </h1>
+          <p class="text-lg md:text-xl mb-6 text-gray-200">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <div class="flex space-x-4">
+            <button
+              class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg"
+            >
+              Mulai
+            </button>
+            <button
+              class="bg-transparent border-2 border-white text-white font-bold py-2 px-6 rounded-lg hover:bg-white hover:text-blue-600"
+            >
+              Pelajari
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Side - Image -->
+        <div class="md:w-1/2">
+          <img
+            src="https://placehold.co/600x400"
+            alt="Hero Image"
+            class="rounded-lg shadow-xl w-full h-auto"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Setelah Hero Section -->
+    <div class="max-w-6xl mx-auto px-4 py-12">
+      <!-- Features Section -->
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Our Features</h2>
+        <p class="text-gray-200">Discover what makes our service special</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Feature 1 -->
+        <div class="bg-white/10 backdrop-blur-md rounded-lg p-6 hover:transform hover:scale-105 transition duration-300">
+          <div class="bg-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">Fast Performance</h3>
+          <p class="text-gray-200">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="bg-white/10 backdrop-blur-md rounded-lg p-6 hover:transform hover:scale-105 transition duration-300">
+          <div class="bg-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">Secure System</h3>
+          <p class="text-gray-200">
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="bg-white/10 backdrop-blur-md rounded-lg p-6 hover:transform hover:scale-105 transition duration-300">
+          <div class="bg-blue-600 w-12 h-12 rounded-lg flex items-center justify-center mb-4 mx-auto">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-white mb-2">Cloud Storage</h3>
+          <p class="text-gray-200">
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Toggle mobile menu
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
