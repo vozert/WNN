@@ -6,12 +6,17 @@
 }
 
 /* Apply linear gradient background to the entire website */
+html {
+  min-height: 100%;
+}
+
 body {
-  background: linear-gradient(180deg, var(--primary-color) 0%, #91BEBE 5%, var(--primary-color) 100%);
-  color: var(--white-color); /* Set default text color to white for contrast */
+  min-height: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif; /* Ensure consistent font usage */
+  font-family: 'Poppins', sans-serif;
+  color: var(--white-color);
+  background-color: #006769;
 }
 
 /* Example usage of primary colors */
@@ -30,4 +35,13 @@ body {
 
 .text-secondary {
   color: var(--secondary-color);
+}
+
+/* Add custom hover classes */
+.hover-white:hover {
+  color: var(--white-color) !important;
+}
+
+.hover-secondary:hover {
+  color: var(--secondary-color) !important;
 }
