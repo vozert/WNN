@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="./css/output.css" as="style">
+
     <!-- Css -->
     <link href="./css/output.css" rel="stylesheet" />
     <link href="./css/colors.css" rel="stylesheet" />
@@ -16,44 +21,56 @@
 
     <!-- Add AOS CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="./css/output.css" as="style">
+    <link rel="preload" href="./css/colors.css" as="style">
+    <link rel="preload" href="./fonts/Poppins-Regular.woff2" as="font" crossorigin>
   </head>
   <body>
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
       <div class="max-w-6xl mx-auto px-4">
         <div class="flex justify-between items-center py-4">
           <!-- Logo -->
           <div class="flex items-center">
-            <span class="text-2xl font-bold text-white">Logo</span>
+            <span class="text-2xl font-bold text-secondary"
+              >Waste Not Network</span
+            >
           </div>
 
           <!-- Desktop Menu -->
           <div class="hidden md:flex items-center space-x-8">
             <a
-              href="#"
-              class="text-secondary transition-colors duration-200 hover-white font-medium"
+              href="#home"
+              class="text-secondary transition-colors duration-200 hover:text-white font-medium"
               >Home</a
             >
             <a
-              href="#"
-              class="text-white transition-colors duration-200 hover-secondary font-medium"
-              >Tentang</a
+              href="#features"
+              class="text-white transition-colors duration-200 hover:text-secondary font-medium"
+              >Our Features</a
             >
             <a
-              href="#"
-              class="text-white transition-colors duration-200 hover-secondary font-medium"
-              >Layanan</a
+              href="#who-we-are"
+              class="text-white transition-colors duration-200 hover:text-secondary font-medium"
+              >Who We Are</a
             >
             <a
-              href="#"
-              class="text-white transition-colors duration-200 hover-secondary font-medium"
-              >Kontak</a
+              href="#our-mission"
+              class="text-white transition-colors duration-200 hover:text-secondary font-medium"
+              >Our Mission</a
             >
           </div>
 
           <!-- Mobile Menu Button -->
           <div class="md:hidden">
-            <button id="menu-btn" class="focus:outline-none text-white">
+            <button
+              id="menu-btn"
+              aria-label="Toggle mobile menu"
+              class="focus:outline-none text-white"
+            >
               <svg
+                aria-hidden="true"
                 class="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
@@ -73,41 +90,40 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden pb-4">
           <a
-            href="#"
-            class="block py-2 text-secondary transition-colors duration-200 hover-white font-medium"
+            href="#home"
+            class="block py-2 text-secondary transition-colors duration-200 hover:text-white font-medium"
             >Home</a
           >
           <a
-            href="#"
-            class="block py-2 text-white transition-colors duration-200 hover-secondary font-medium"
-            >Tentang</a
+            href="#features"
+            class="block py-2 text-white transition-colors duration-200 hover:text-secondary font-medium"
+            >Our Features</a
           >
           <a
-            href="#"
-            class="block py-2 text-white transition-colors duration-200 hover-secondary font-medium"
-            >Layanan</a
+            href="#who-we-are"
+            class="block py-2 text-white transition-colors duration-200 hover:text-secondary font-medium"
+            >Who We Are</a
           >
           <a
-            href="#"
-            class="block py-2 text-white transition-colors duration-200 hover-secondary font-medium"
-            >Kontak</a
+            href="#our-mission"
+            class="block py-2 text-white transition-colors duration-200 hover:text-secondary font-medium"
+            >Our Mission</a
           >
         </div>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <div class="max-w-6xl mx-auto px-4 py-12">
+    <div id="home" class="max-w-6xl mx-auto px-4 py-12">
       <div class="flex flex-col md:flex-row items-center justify-between">
         <!-- Left Side - Text Content -->
         <div
-          class="md:w-5/12 mb-8 md:mb-0"
           data-aos="fade-right"
           data-aos-duration="1000"
-          data-aos-delay="100"
+          class="md:w-1/2 mb-8 md:mb-0"
         >
           <h1 class="text-4xl md:text-5xl font-extrabold mb-4 text-secondary">
-            Connecting Communities <br />for Sustainable Waste Reduction
+            Connecting Communities for Sustainable Waste Reduction
           </h1>
           <p
             class="text-lg md:text-xl mb-6 text-gray-200 md:pr-8 leading-relaxed max-w-xl"
@@ -122,6 +138,8 @@
             data-aos-delay="300"
           >
             <button
+              onclick="window.location.href='./get-started.html'"
+              aria-label="Get Started"
               class="bg-white text-primary font-bold py-3 px-8 rounded-lg transition-all duration-300 ease-in-out shadow-[0_5px_15px_rgba(0,0,0,0.2)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.3)] hover:-translate-y-1 hover:bg-secondary group flex items-center space-x-2"
             >
               <span class="transition-all duration-300 group-hover:mr-1"
@@ -146,15 +164,18 @@
 
         <!-- Right Side - Image -->
         <div
-          class="md:w-7/12"
           data-aos="fade-left"
           data-aos-duration="1000"
           data-aos-delay="200"
+          class="md:w-1/2"
         >
           <img
             src="./images/Vector.png"
             alt="Hero Vector Image"
             class="w-auto h-auto object-contain max-w-full"
+            loading="lazy"
+            width="600"
+            height="400"
           />
         </div>
       </div>
@@ -163,65 +184,112 @@
     <!-- Setelah Hero Section -->
     <div class="max-w-6xl mx-auto px-4 py-12">
       <!-- Features Section -->
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-secondary mb-4">
-          Our Features
-        </h2>
-        <p class="text-gray-200">Discover what makes our service special</p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Feature 1 -->
+      <div id="features" class="max-w-6xl mx-auto px-4 py-12">
         <div
+          class="text-center mb-12"
           data-aos="fade-up"
-          class="bg-white/10 backdrop-blur-md rounded-lg p-6 hover:transform hover:scale-105 transition duration-300 text-center h-full flex flex-col justify-between"
+          data-aos-duration="1000"
         >
-          <div class="flex justify-center mb-4">
-            <img
-              src="./images/Navigation-pana-1.png"
-              alt="Navigation Feature"
-              class="w-auto h-auto max-w-full"
-            />
-          </div>
-          <h3 class="text-xl font-semibold text-white">
-            Locate nearby <br />recycling centers
-          </h3>
+          <h2 class="text-3xl md:text-4xl font-extrabold text-secondary mb-4">
+            Our Features
+          </h2>
+          <p class="text-gray-200 text-lg">
+            Empowering you with smart waste management solutions
+          </p>
         </div>
 
-        <!-- Feature 2 -->
-        <div
-          data-aos="fade-up"
-          data-aos-delay="100"
-          class="bg-white/10 backdrop-blur-md rounded-lg p-6 hover:transform hover:scale-105 transition duration-300 text-center h-full flex flex-col justify-between"
-        >
-          <div class="flex justify-center mb-4">
-            <img
-              src="./images/Team-goals-rafiki.png"
-              alt="Team Goals Rafiki"
-              class="w-auto h-auto max-w-full"
-            />
-          </div>
-          <h3 class="text-xl font-semibold text-white">
-            Track your waste <br />reduction impact
-          </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Feature 1 -->
+          <a
+            href="./waste-identification.html"
+            class="block"
+            data-aos="fade-up"
+            data-aos-delay="0"
+          >
+            <div
+              data-aos="fade-up"
+              data-aos-delay="0"
+              class="bg-white/10 backdrop-blur-md rounded-lg p-8 hover:transform hover:scale-105 transition duration-300 text-center h-full flex flex-col justify-between group hover:bg-white/15"
+            >
+              <div class="flex justify-center mb-8">
+                <img
+                  src="./images/rb_156.png"
+                  alt="AI-powered waste identification system illustration"
+                  class="w-auto h-48 object-contain group-hover:-translate-y-2 transition-transform duration-300"
+                  loading="lazy"
+                  width="192"
+                  height="192"
+                />
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-white mb-4">
+                  Smart Waste Identification
+                </h3>
+                <p class="text-gray-300">
+                  Advanced AI technology to help you identify and categorize
+                  different types of waste materials accurately
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Feature 2 -->
+          <a
+            href="./chatbot.html"
+            class="block"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              data-aos="fade-up"
+              data-aos-delay="200"
+              class="bg-white/10 backdrop-blur-md rounded-lg p-8 hover:transform hover:scale-105 transition duration-300 text-center h-full flex flex-col justify-between group hover:bg-white/15"
+            >
+              <div class="flex justify-center mb-8">
+                <img
+                  src="./images/Chat bot-pana.png"
+                  alt="Interactive AI chatbot assistant illustration"
+                  class="w-auto h-48 object-contain group-hover:-translate-y-2 transition-transform duration-300"
+                  loading="lazy"
+                  width="192"
+                  height="192"
+                />
+              </div>
+              <div>
+                <h3 class="text-xl font-semibold text-white mb-4">
+                  Intelligent Assistant
+                </h3>
+                <p class="text-gray-300">
+                  24/7 AI-powered chatbot providing instant guidance on waste
+                  management and recycling practices
+                </p>
+              </div>
+            </div>
+          </a>
         </div>
 
-        <!-- Feature 3 -->
+        <!-- Feature Highlights -->
         <div
+          class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
           data-aos="fade-up"
-          data-aos-delay="200"
-          class="bg-white/10 backdrop-blur-md rounded-lg p-6 hover:transform hover:scale-105 transition duration-300 text-center h-full flex flex-col justify-between"
+          data-aos-delay="300"
         >
-          <div class="flex justify-center mb-4">
-            <img
-              src="./images/Easter-egg-hunt-pana.png"
-              alt="Easter Egg Hunt Feature"
-              class="w-auto h-auto max-w-full"
-            />
+          <div class="text-center p-4">
+            <div class="text-3xl font-bold text-secondary mb-2">500+</div>
+            <p class="text-gray-200">Waste Materials Identified</p>
           </div>
-          <h3 class="text-xl font-semibold text-white">
-            Discover eco-friendly <br />products and tips
-          </h3>
+          <div class="text-center p-4">
+            <div class="text-3xl font-bold text-secondary mb-2">24/7</div>
+            <p class="text-gray-200">AI Support Available</p>
+          </div>
+          <div class="text-center p-4">
+            <div class="text-3xl font-bold text-secondary mb-2">100+</div>
+            <p class="text-gray-200">Community Partners</p>
+          </div>
+          <div class="text-center p-4">
+            <div class="text-3xl font-bold text-secondary mb-2">50k+</div>
+            <p class="text-gray-200">Active Users</p>
+          </div>
         </div>
       </div>
     </div>
@@ -229,7 +297,10 @@
     <!-- After Features Section -->
     <div class="max-w-6xl mx-auto px-4 py-12">
       <!-- Who We Are Section -->
-      <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+      <div
+        id="who-we-are"
+        class="flex flex-col md:flex-row items-center justify-between gap-8"
+      >
         <!-- Left Side - Text Content -->
         <div data-aos="fade-right" class="md:w-7/12">
           <h2 class="text-6xl md:text-4xl font-extrabold text-secondary mb-4">
@@ -241,9 +312,8 @@
           <p class="text-gray-200 mb-6">
             At Waste Not Network, we are dedicated to helping individuals and
             communities take meaningful steps toward sustainable living. Our
-            platform connects you to local recycling centers, composting
-            programs, and eco-friendly resources, making it easier to reduce
-            waste and adopt green habits.
+            platform offers AI-powered waste identification and intelligent
+            assistance, making it easier to reduce waste and adopt green habits.
           </p>
         </div>
 
@@ -251,14 +321,18 @@
         <div data-aos="fade-left" class="md:w-5/12">
           <img
             src="./images/Component 2.png"
-            alt="Team at work"
+            alt="Team collaborating on sustainable solutions"
             class="w-full h-auto hover:transform hover:scale-105 transition duration-300"
+            loading="lazy"
+            width="500"
+            height="375"
           />
         </div>
       </div>
 
       <!-- Our Mission Section (Opposite Layout) -->
       <div
+        id="our-mission"
         class="flex flex-col md:flex-row-reverse items-center justify-between gap-8 mt-20"
       >
         <!-- Right Side - Text Content -->
@@ -267,17 +341,10 @@
             Our Mission
           </h2>
           <p class="text-gray-200 mb-6">
-            We aim to simplify sustainability by providing accessible,
-            actionable information and tools that encourage responsible waste
-            management. We believe that small actions, when multiplied by many,
-            can create a significant impact on our planet's health.
+            Our mission is to make sustainability simple and accessible for everyone. We provide tools and information that promote responsible waste management, believing that collective small actions can significantly impact our planet's health.
           </p>
           <p class="text-gray-200 mb-6">
-            By empowering communities with the knowledge and resources to make
-            eco-conscious decisions, we strive to build a future where reducing
-            waste isn't just a challenge—it's a shared commitment. Together, we
-            can turn waste into opportunity and create a cleaner, greener world
-            for generations to come.
+            We empower communities with the knowledge and resources needed to make eco-friendly choices. Our goal is to transform waste reduction from a challenge into a shared commitment, creating a cleaner, greener world for future generations.
           </p>
         </div>
 
@@ -285,8 +352,11 @@
         <div data-aos="fade-right" class="md:w-5/12">
           <img
             src="./images/33433009_8056325 1.png"
-            alt="Our Mission"
+            alt="Environmental sustainability mission illustration"
             class="w-full h-auto hover:transform hover:scale-105 transition duration-300"
+            loading="lazy"
+            width="500"
+            height="375"
           />
         </div>
       </div>
@@ -306,15 +376,6 @@
               make a difference through smart waste management and community
               engagement.
             </p>
-            <div class="flex space-x-4">
-              <!-- Social Media Icons with hover effects -->
-              <a
-                href="#"
-                class="text-gray-200 hover:text-secondary-color transition-colors duration-300"
-              >
-                <!-- Social icons remain same -->
-              </a>
-            </div>
           </div>
 
           <!-- Company - Takes 1 column -->
@@ -322,17 +383,23 @@
             <h3 class="text-xl font-semibold text-white mb-4">Company</h3>
             <ul class="space-y-2">
               <li>
-                <a href="#" class="text-gray-200 hover:text-secondary-color"
+                <a
+                  href="#"
+                  class="text-gray-200 hover:text-secondary transition-colors duration-300"
                   >About</a
                 >
               </li>
               <li>
-                <a href="#" class="text-gray-200 hover:text-secondary-color"
+                <a
+                  href="#"
+                  class="text-gray-200 hover:text-secondary transition-colors duration-300"
                   >Careers</a
                 >
               </li>
               <li>
-                <a href="#" class="text-gray-200 hover:text-secondary-color"
+                <a
+                  href="#"
+                  class="text-gray-200 hover:text-secondary transition-colors duration-300"
                   >Mobile</a
                 >
               </li>
@@ -344,17 +411,23 @@
             <h3 class="text-xl font-semibold text-white mb-4">Contact</h3>
             <ul class="space-y-2">
               <li>
-                <a href="#" class="text-gray-200 hover:text-secondary-color"
+                <a
+                  href="#"
+                  class="text-gray-200 hover:text-secondary transition-colors duration-300"
                   >Help/FAQ</a
                 >
               </li>
               <li>
-                <a href="#" class="text-gray-200 hover:text-secondary-color"
+                <a
+                  href="#"
+                  class="text-gray-200 hover:text-secondary transition-colors duration-300"
                   >Press</a
                 >
               </li>
               <li>
-                <a href="#" class="text-gray-200 hover:text-secondary-color"
+                <a
+                  href="#"
+                  class="text-gray-200 hover:text-secondary transition-colors duration-300"
                   >Affiliates</a
                 >
               </li>
@@ -366,17 +439,23 @@
             <h3 class="text-xl font-semibold text-white mb-4">More</h3>
             <ul class="space-y-2">
               <li>
-                <a href="#" class="text-gray-200 hover:text-secondary-color"
+                <a
+                  href="#"
+                  class="text-gray-200 hover:text-secondary transition-colors duration-300"
                   >Blog & Resources</a
                 >
               </li>
               <li>
-                <a href="#" class="text-gray-200 hover:text-secondary-color"
+                <a
+                  href="#"
+                  class="text-gray-200 hover:text-secondary transition-colors duration-300"
                   >Community Partners</a
                 >
               </li>
               <li>
-                <a href="#" class="text-gray-200 hover:text-secondary-color"
+                <a
+                  href="#"
+                  class="text-gray-200 hover:text-secondary transition-colors duration-300"
                   >Sustainability Tips</a
                 >
               </li>
@@ -393,17 +472,17 @@
             <div class="flex space-x-6">
               <a
                 href="#"
-                class="text-gray-200 hover:text-secondary-color text-sm transition-colors duration-300"
+                class="text-gray-200 hover:text-secondary text-sm transition-colors duration-300"
                 >Privacy Policy</a
               >
               <a
                 href="#"
-                class="text-gray-200 hover:text-secondary-color text-sm transition-colors duration-300"
+                class="text-gray-200 hover:text-secondary text-sm transition-colors duration-300"
                 >Terms of Service</a
               >
               <a
                 href="#"
-                class="text-gray-200 hover:text-secondary-color text-sm transition-colors duration-300"
+                class="text-gray-200 hover:text-secondary text-sm transition-colors duration-300"
                 >Cookie Policy</a
               >
             </div>
@@ -414,8 +493,24 @@
 
     <!-- AOS Script -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    
+
     <!-- Custom JavaScript -->
     <script src="./js/main.js"></script>
+
+    <!-- Scroll to Top Button -->
+    <button 
+      id="scroll-top" 
+      class="fixed bottom-8 right-8 bg-secondary/80 p-3 rounded-full shadow-lg hover:bg-secondary transition-all duration-300 hidden"
+      aria-label="Scroll to top"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+      </svg>
+    </button>
+
+    <!-- Offline Message -->
+    <div id="offline-message" class="hidden fixed bottom-4 right-4 bg-red-500/90 text-white p-4 rounded-lg shadow-lg">
+      You are currently offline. Some features may be limited.
+    </div>
   </body>
 </html>

@@ -3,6 +3,8 @@
   --primary-color: #006769;
   --secondary-color: #E6FF94;
   --white-color: #FFFFFF;
+  --bg-gradient: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  --transition-base: all 0.3s ease-in-out;
 }
 
 /* Apply linear gradient background to the entire website */
@@ -44,4 +46,40 @@ body {
 
 .hover-secondary:hover {
   color: var(--secondary-color) !important;
+}
+
+/* Add this to your existing styles */
+.bg-gradient {
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+  min-height: 100vh;
+}
+
+/* Add utility classes */
+.loading-skeleton {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+
+@media print {
+  .no-print {
+    display: none;
+  }
+  body {
+    background: white;
+    color: black;
+  }
+}
+
+#mobile-menu {
+  transition: all 0.3s ease-in-out;
+  transform-origin: top;
+}
+
+#mobile-menu.hidden {
+  transform: scaleY(0);
+  opacity: 0;
 }

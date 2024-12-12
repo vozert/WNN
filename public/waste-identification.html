@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Smart waste identification using AI technology. Instantly identify materials and get proper disposal methods for sustainable waste management." />
+    <title>Smart Waste Identification - Waste Not Network</title>
+    
+    <!-- Css -->
+    <link href="./css/output.css" rel="stylesheet" />
+    <link href="./css/colors.css" rel="stylesheet" />
+    
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <span class="text-2xl font-bold text-secondary">Waste Not Network</span>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="./index.html"
+              class="text-white transition-colors duration-200 hover:text-secondary font-medium"
+              >Home</a
+            >
+            <a
+              href="./waste-identification.html"
+              class="text-secondary transition-colors duration-200 hover:text-white font-medium"
+              >Smart Waste Identification</a
+            >
+            <a
+              href="./chatbot.html"
+              class="text-white transition-colors duration-200 hover:text-secondary font-medium"
+              >Intelligent Assistant</a
+            >
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden">
+            <button id="menu-btn" class="focus:outline-none text-white">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4">
+          <a
+            href="./index.html"
+            class="block py-2 text-white transition-colors duration-200 hover:text-secondary font-medium"
+            >Home</a
+          >
+          <a
+            href="./waste-identification.html"
+            class="block py-2 text-secondary transition-colors duration-200 hover:text-white font-medium"
+            >Smart Waste Identification</a
+          >
+          <a
+            href="./chatbot.html"
+            class="block py-2 text-white transition-colors duration-200 hover:text-secondary font-medium"
+            >Intelligent Assistant</a
+          >
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="max-w-6xl mx-auto px-4 py-12">
+      <div class="text-center mb-12" data-aos="fade-down" data-aos-duration="1000">
+        <h1 class="text-4xl md:text-5xl font-bold text-secondary mb-4">
+          Smart Waste Identification
+        </h1>
+        <p class="text-gray-200 text-lg max-w-3xl mx-auto">
+          Point your camera at any waste material for instant identification
+        </p>
+      </div>
+      
+      <!-- Camera Section -->
+      <div class="max-w-3xl mx-auto mb-16" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <div class="bg-white/10 backdrop-blur-md rounded-lg p-8">
+          <div class="flex flex-col items-center">
+            <!-- Camera Preview -->
+            <div class="w-full max-w-xl aspect-video bg-gray-800 rounded-lg mb-4 overflow-hidden">
+              <video 
+                id="camera-preview" 
+                class="w-full h-full object-cover" 
+                autoplay 
+                playsinline
+                width="1280"
+                height="720"
+              ></video>
+            </div>
+            
+            <!-- Camera Controls -->
+            <div class="flex gap-4">
+              <button 
+                id="switch-camera" 
+                aria-label="Switch camera"
+                class="bg-white text-primary font-bold py-3 px-6 rounded-lg transition-all duration-300 hover:shadow-[0_8px_20px_rgba(0,0,0,0.3)] hover:-translate-y-1 hover:bg-secondary group"
+              >
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Analysis Results -->
+      <div class="max-w-4xl mx-auto" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+        <div class="bg-white/10 backdrop-blur-md rounded-lg p-6">
+          <h3 class="text-xl font-semibold text-white mb-4">Live Analysis</h3>
+          <div id="results-container" class="space-y-4">
+            <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+              <span class="text-gray-200">Material Type</span>
+              <span class="text-secondary font-semibold" id="material-type">Scanning...</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+              <span class="text-gray-200">Recyclable</span>
+              <span class="text-secondary font-semibold" id="recyclable">Scanning...</span>
+            </div>
+            <div class="flex items-center justify-between p-3 bg-white/5 rounded-lg">
+              <span class="text-gray-200">Disposal Method</span>
+              <span class="text-secondary font-semibold" id="disposal-method">Scanning...</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer Section -->
+    <footer class="mt-20">
+      <div class="max-w-6xl mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <!-- Company Info - Takes 2 columns -->
+          <div class="col-span-1 md:col-span-2">
+            <h3 class="text-2xl font-bold text-white mb-4">
+              Waste Not Network
+            </h3>
+            <p class="text-gray-200 mb-6">
+              Join our mission to create a sustainable future. Together, we can
+              make a difference through smart waste management and community
+              engagement.
+            </p>
+          </div>
+
+          <!-- Company - Takes 1 column -->
+          <div class="col-span-1">
+            <h3 class="text-xl font-semibold text-white mb-4">Company</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-200 hover:text-secondary transition-colors duration-300">About</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-200 hover:text-secondary transition-colors duration-300">Careers</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-200 hover:text-secondary transition-colors duration-300">Mobile</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact - Takes 1 column -->
+          <div class="col-span-1">
+            <h3 class="text-xl font-semibold text-white mb-4">Contact</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-200 hover:text-secondary transition-colors duration-300">Help/FAQ</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-200 hover:text-secondary transition-colors duration-300">Press</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-200 hover:text-secondary transition-colors duration-300">Support</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- More Info - Takes 1 column -->
+          <div class="col-span-1">
+            <h3 class="text-xl font-semibold text-white mb-4">More</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-200 hover:text-secondary transition-colors duration-300">Blog & Resources</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-200 hover:text-secondary transition-colors duration-300">Community Partners</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-200 hover:text-secondary transition-colors duration-300">Sustainability Tips</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="border-t border-gray-200/20 mt-12 pt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-200 text-sm mb-4 md:mb-0">
+              © 2024 Waste Not Network. All rights reserved.
+            </p>
+            <div class="flex space-x-6">
+              <a href="#" class="text-gray-200 hover:text-secondary text-sm transition-colors duration-300">Privacy Policy</a>
+              <a href="#" class="text-gray-200 hover:text-secondary text-sm transition-colors duration-300">Terms of Service</a>
+              <a href="#" class="text-gray-200 hover:text-secondary text-sm transition-colors duration-300">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html> 

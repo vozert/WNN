@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Get instant guidance on waste management and recycling with our AI-powered assistant. Real-time support for sustainable waste practices." />
+    <title>Intelligent Assistant - Waste Not Network</title>
+    
+    <!-- Css -->
+    <link href="./css/output.css" rel="stylesheet" />
+    <link href="./css/colors.css" rel="stylesheet" />
+    
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <span class="text-2xl font-bold text-secondary">Waste Not Network</span>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="./index.html"
+              class="text-white transition-colors duration-200 hover:text-secondary font-medium"
+              >Home</a
+            >
+            <a
+              href="./waste-identification.html"
+              class="text-white transition-colors duration-200 hover:text-secondary font-medium"
+              >Smart Waste Identification</a
+            >
+            <a
+              href="./chatbot.html"
+              class="text-secondary transition-colors duration-200 hover:text-white font-medium"
+              >Intelligent Assistant</a
+            >
+          </div>
+
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden">
+            <button id="menu-btn" class="focus:outline-none text-white">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden pb-4">
+          <a
+            href="./index.html"
+            class="block py-2 text-white transition-colors duration-200 hover:text-secondary font-medium"
+            >Home</a
+          >
+          <a
+            href="./waste-identification.html"
+            class="block py-2 text-white transition-colors duration-200 hover:text-secondary font-medium"
+            >Smart Waste Identification</a
+          >
+          <a
+            href="./chatbot.html"
+            class="block py-2 text-secondary transition-colors duration-200 hover:text-white font-medium"
+            >Intelligent Assistant</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="max-w-6xl mx-auto px-4 py-12">
+      <div class="text-center mb-12" data-aos="fade-down" data-aos-duration="1000">
+        <h1 class="text-4xl md:text-5xl font-bold text-secondary mb-4">
+          Intelligent Assistant
+        </h1>
+        <p class="text-gray-200 text-lg max-w-3xl mx-auto">
+          Get instant guidance on waste management and recycling practices
+        </p>
+      </div>
+
+      <!-- Chat Interface -->
+      <div class="max-w-3xl mx-auto" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+        <div class="bg-white/10 backdrop-blur-md rounded-lg overflow-hidden">
+          <!-- Chat Messages -->
+          <div id="chat-messages" class="h-[500px] overflow-y-auto p-6 space-y-4">
+            <!-- Bot Message -->
+            <div class="flex items-start space-x-4">
+              <div class="w-10 h-10 rounded-full bg-secondary/20 border-2 border-secondary flex items-center justify-center">
+                <svg class="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23-.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+                </svg>
+              </div>
+              <div class="bg-white/5 rounded-lg p-4 max-w-[80%]">
+                <p class="text-white">Hello! I'm your waste management assistant. How can I help you today?</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chat Input -->
+          <div class="p-4 border-t border-white/10">
+            <form id="chat-form" class="flex space-x-4">
+              <input
+                type="text"
+                id="chat-input"
+                required
+                minlength="2"
+                maxlength="500"
+                autocomplete="off"
+                class="flex-1 bg-white/5 text-white rounded-lg px-6 py-4 focus:outline-none focus:ring-2 focus:ring-secondary text-lg"
+                placeholder="Type your message..."
+              />
+              <button
+                type="submit"
+                aria-label="Send message"
+                class="bg-white text-primary font-bold py-4 px-6 rounded-lg transition-all duration-300 hover:shadow-[0_8px_20px_rgba(0,0,0,0.3)] hover:-translate-y-1 hover:bg-secondary group"
+              >
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" width="24" height="24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="mt-20">
+      <div class="max-w-6xl mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+          <!-- Company Info - Takes 2 columns -->
+          <div class="col-span-1 md:col-span-2">
+            <h3 class="text-2xl font-bold text-white mb-4">
+              Waste Not Network
+            </h3>
+            <p class="text-gray-200 mb-6">
+              Join our mission to create a sustainable future. Together, we can
+              make a difference through smart waste management and community
+              engagement.
+            </p>
+          </div>
+
+          <!-- Company - Takes 1 column -->
+          <div class="col-span-1">
+            <h3 class="text-xl font-semibold text-white mb-4">Company</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-200 hover:text-secondary transition-colors duration-300">About</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-200 hover:text-secondary transition-colors duration-300">Careers</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-200 hover:text-secondary transition-colors duration-300">Mobile</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact - Takes 1 column -->
+          <div class="col-span-1">
+            <h3 class="text-xl font-semibold text-white mb-4">Contact</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-200 hover:text-secondary transition-colors duration-300">Help/FAQ</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-200 hover:text-secondary transition-colors duration-300">Press</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-200 hover:text-secondary transition-colors duration-300">Support</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- More Info - Takes 1 column -->
+          <div class="col-span-1">
+            <h3 class="text-xl font-semibold text-white mb-4">More</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-200 hover:text-secondary transition-colors duration-300">Blog & Resources</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-200 hover:text-secondary transition-colors duration-300">Community Partners</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-200 hover:text-secondary transition-colors duration-300">Sustainability Tips</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="border-t border-gray-200/20 mt-12 pt-8">
+          <div class="flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-200 text-sm mb-4 md:mb-0">
+              © 2024 Waste Not Network. All rights reserved.
+            </p>
+            <div class="flex space-x-6">
+              <a href="#" class="text-gray-200 hover:text-secondary text-sm transition-colors duration-300">Privacy Policy</a>
+              <a href="#" class="text-gray-200 hover:text-secondary text-sm transition-colors duration-300">Terms of Service</a>
+              <a href="#" class="text-gray-200 hover:text-secondary text-sm transition-colors duration-300">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/chatbot.js"></script>
+
+    <!-- Add after chat interface -->
+    <noscript>
+      <div class="text-center p-8 bg-white/10 rounded-lg">
+        <svg class="w-16 h-16 text-secondary mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+        </svg>
+        <p class="text-gray-200 text-lg">
+          Please enable JavaScript to use the chat feature. Alternatively, you can contact us at support@wastenotnetwork.com
+        </p>
+      </div>
+    </noscript>
+  </body>
+</html> 
